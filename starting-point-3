@@ -1,0 +1,70 @@
+TARGET MACHINE IP ADDRESS
+
+10.129.160.49
+
+task 1:
+    What does the 3-letter acronym SMB stand for?
+
+aswer:
+    Server Message Block
+
+Server Message Block（SMB）是一种网络协议，用于在局域网(LAN)上共享文件、打印机和其他资源。它最初是由IBM开发的，并在微软Windows操作系统中广泛使用。SMB协议允许计算机之间共享文件和打印机，同时提供对远程文件系统的访问和管理。SMB协议通常在TCP/IP上运行，并使用445端口进行通信。
+
+SMB协议的主要功能包括文件共享、远程文件访问、打印机共享、目录和文件管理、权限控制等。它还支持加密和身份验证机制，以确保安全传输和访问控制。
+
+SMB协议的最新版本是SMB3，它包含了许多改进和增强功能，包括更好的性能、更高的安全性和更好的可扩展性。SMB3还引入了支持SMB加密的功能，以提供对数据的保护。
+
+
+task 2：
+    What does the 3-letter acronym SMB stand for?
+
+awser:
+    445
+
+task 3:
+    What is the service name for port 445 that came up in our Nmap scan?
+
+aswer:
+    microsoft-ds
+
+"microsoft-ds" 是指 Microsoft SMB 文件共享服务的通信端口，通常运行在 TCP 端口 445 上。Microsoft SMB 文件共享服务是 Microsoft Windows 系统中用于文件和打印机共享的一种网络协议，它基于 Server Message Block (SMB) 协议。"microsoft-ds" 是 SMB 协议的一种实现，在 Windows 系统中用于提供文件共享服务，并且与 SMB 协议密切相关。
+
+task 4：
+    What is the 'flag' or 'switch' that we can use with the smbclient utility to 'list' the available shares on Dancing?
+
+aswer:
+    -L
+
+task 5:
+    How many shares are there on Dancing?
+
+aswer:
+    4
+
+n能够通过smbclient -L target_ip_addr获取到
+
+task 6：
+    What is the name of the share we are able to access in the end with a blank password?
+
+aswer:
+    WorkShares
+
+task 7:
+    What is the command we can use within the SMB shell to download the files we find?
+
+aswer:
+    get
+
+task 8:
+    Submit root flag
+
+aswer:
+    5f61c10dffbc77a704d76016a22f1664
+
+
+    smbclient \\\\10.129.160.49\\WorkShares
+
+    get flag.txt
+
+    
+https://medium.com/@Kamal_S/hack-the-box-dancing-solution-19ac1151820b
