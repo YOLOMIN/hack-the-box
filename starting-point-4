@@ -1,0 +1,68 @@
+TARGET MACHINE IP ADDRESS
+
+10.129.196.106
+
+Read the walkthrough provided, to get a detailed guide on how to pwn this machine.
+
+task 1:
+  Which TCP port is open on the machine?
+aswer:
+  6379
+
+task 2:
+  Which service is running on the port that is open on the machine?
+aswer:
+  redis
+
+task 3：
+  What type of database is Redis? Choose from the following options: (i) In-memory Database, (ii) Traditional Database
+aswer:
+  In-memory Database
+
+task 4:
+  Which command-line utility is used to interact with the Redis server? Enter the program name you would enter into the terminal without any arguments.
+aswer:
+  redis-cli
+
+task 5:
+  Which flag is used with the Redis command-line utility to specify the hostname?
+aswer:
+  -h
+
+task 6:
+  Once connected to a Redis server, which command is used to obtain the information and statistics about the Redis server?
+aswer:
+  info
+
+task 7:
+  What is the version of the Redis server being used on the target machine?
+aswer:
+  5.0.7
+
+  步骤1: redis-cli -h 10.129.196.106
+  步骤2：info
+
+task 8：
+  Which command is used to select the desired database in Redis?
+aswer:
+  select
+
+task 9:
+  How many keys are present inside the database with index 0?
+aswer:
+  4
+
+task 10:
+  Which command is used to obtain all the keys in a database?
+aswer:
+  keys *
+
+task 11:
+  Submit root flag
+aswer:
+  03e1d2b376c37ab3f5319922053953eb
+
+步骤：get flag
+  03e1d2b376c37ab3f5319922053953eb
+
+https://medium.com/@Kamal_S/hack-the-box-redeemer-solution-536a99df73d2
