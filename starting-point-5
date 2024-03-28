@@ -1,0 +1,90 @@
+TARGET MACHINE IP ADDRESS
+
+10.129.166.16
+
+Read the walkthrough provided, to get a detailed guide on how to pwn this machine.
+
+task 1：
+  What does the 3-letter acronym RDP stand for?
+
+aswer:
+   Remote Desktop Protocol
+
+远程桌面协议（Remote Desktop Protocol，简称RDP）是一种用于远程访问和控制计算机桌面的协议。它允许用户通过网络连接到远程计算机，查看其桌面，并在远程计算机上执行操作，就像坐在该计算机前一样。
+
+RDP最初由微软开发，用于其Windows操作系统，提供了一种方便的方式，使用户能够远程连接到另一台运行Windows的计算机。随着时间的推移，RDP也被许多其他操作系统和远程访问软件所采用和支持。
+
+使用RDP，远程计算机的桌面可以在客户端计算机上显示，用户可以使用鼠标、键盘等输入设备与远程计算机进行交互。远程桌面协议可以用于各种用途，包括远程技术支持、远程办公、远程教学等。
+
+RDP具有许多功能，例如音频传输、打印机共享、文件传输等，使用户能够在远程计算机上进行多样化的操作，并提供了一些安全性功能，如加密通信，以保护远程连接的数据安全。
+
+task 2：
+  What is a 3-letter acronym that refers to interaction with the host through a command line interface?
+aswer:
+  CLI
+
+CLI 是 Command-Line Interface（命令行界面）的缩写，它是一种通过文本命令输入和输出来与计算机系统交互的用户界面。在 CLI 中，用户通过键盘输入命令，然后系统执行这些命令，并将结果以文本形式输出给用户。
+
+CLI 通常以命令提示符（Command Prompt）的形式出现，用户在提示符后面输入命令，然后按下回车键执行该命令。命令的执行结果通常以文本信息的形式显示在命令提示符下面。
+
+CLI 具有以下一些特点和优势：
+
+1. **灵活性**：CLI 允许用户以自己的方式构造命令，使其非常灵活，可以根据需要进行定制和扩展。
+2. **效率**：对于熟练掌握命令行的用户来说，CLI 可以比图形用户界面（GUI）更快速、更高效地完成任务。
+3. **自动化**：CLI 可以轻松地与脚本编程语言（如 Bash、Python）集成，实现自动化任务和批处理处理。
+4. **资源消耗少**：CLI 通常占用的系统资源较少，适用于资源受限的环境，如服务器环境。
+
+在许多操作系统中，包括 Linux、Unix、macOS 和 Windows，都提供了命令行界面，用户可以通过 CLI 来与操作系统和软件进行交互。
+
+task 3:
+  What about graphical user interface interactions?
+aswer:
+  GUI
+
+task 4:
+  What is the name of an old remote access tool that came without encryption by default and listens on TCP port 23?
+aswer:
+  telnet
+
+task 5:
+  What is the name of the service running on port 3389 TCP?
+aswer:
+  ms-wbt-server
+
+"ms-wbt-server" 是 Windows 操作系统中的一个服务。它是 Microsoft Windows Terminal Server 的一部分，负责处理远程桌面连接的请求。在 Windows 系统中，远程桌面连接（Remote Desktop Connection）允许用户从远程位置连接到 Windows 计算机上，并使用该计算机的桌面环境。
+
+ms-wbt-server 实际上是 Remote Desktop Services（RDS，以前称为 Terminal Services）的一个关键组件，它提供了用于远程访问和管理 Windows 桌面的功能。用户可以通过远程桌面连接进行登录，并在远程计算机上执行各种操作，就像在本地计算机上一样。
+
+该服务通常在 Windows 系统中默认启用，用户可以通过远程桌面客户端（如 Windows 自带的远程桌面连接或者其他第三方远程桌面客户端）来连接到目标计算机，只需提供正确的用户名和密码即可登录到远程会话中。
+
+ms-wbt-server 提供了一种安全的远程访问机制，可以通过加密技术来保护传输的数据，从而确保远程连接的安全性。此外，它还提供了管理远程会话、控制权限、监控远程连接等功能，使管理员能够有效地管理远程访问。
+
+run nmap -sV -T4 -AO <ip-address> to find the answer.
+
+task 5：
+  What is the switch used to specify the target host's IP address when using xfreerdp?
+aswer:
+  /v:
+
+xfreerdp 是一个开源的远程桌面客户端，用于与 Microsoft 的远程桌面服务（RDP）进行通信。它是 FreeRDP 项目的一部分，提供了跨平台的远程桌面连接功能，允许用户从 Linux、Unix、macOS 等操作系统上连接到运行 Windows 的远程计算机。
+
+FreeRDP 项目的目标是实现一个高性能、稳定的开源远程桌面协议客户端，与 Microsoft 的远程桌面服务（RDS）兼容，并提供了丰富的功能和选项，以满足不同用户的需求。
+
+xfreerdp 提供了一个命令行界面（CLI），用户可以使用命令行选项来配置连接参数，也可以通过图形用户界面（GUI）进行交互式的操作。它支持远程桌面连接的基本功能，如键盘、鼠标输入、剪贴板共享、显示远程桌面等，并提供了一些高级功能，如音频传输、文件共享、打印机共享等。
+
+由于 FreeRDP 是一个开源项目，因此它的代码可供检查和修改，也可以根据用户的需求进行定制和扩展。这使得 xfreerdp 成为许多 Linux 和 macOS 用户首选的远程桌面客户端之一，用于与 Windows 远程桌面服务进行连接和交互。
+
+task 6:
+  What username successfully returns a desktop projection to us with a blank password?
+aswer:
+  Administrator
+
+Submit root flag
+951fa96d7830c451b536be5a6be008a0
+
+步骤：
+xfreerdp -u:Administrator /cert-ignore  /v:10.129.228.110:3389
+（出现输入密码提示后直接回车即可！！！）
+
+
+https://medium.com/@exoticspices/htb-explosion-walkthrough-very-easy-5a988183c211
