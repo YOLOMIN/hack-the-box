@@ -1,0 +1,71 @@
+TARGET MACHINE IP ADDRESS
+
+10.129.236.116
+
+Read the walkthrough provided, to get a detailed guide on how to pwn this machine.
+
+task 1:
+    Directory Brute-forcing is a technique used to check a lot of paths on a web server to find hidden pages. Which is another name for this? (i) Local File Inclusion, (ii) dir busting, (iii) hash cracking.
+aswer:
+    dir busting
+
+task 2:
+    What switch do we use for nmap's scan to specify that we want to perform version detection
+aswer:
+    -sV
+
+task 3：
+    What does Nmap report is the service identified as running on port 80/tcp?
+aswer:
+    HTTP
+
+task 4：
+    What server name and version of service is running on port 80/tcp?
+aswer:
+    nginx 1.14.2
+
+task 5:
+    What switch do we use to specify to Gobuster we want to perform dir busting specifically?
+
+aswer:
+    dir
+
+    Gobuster 是一种用于目录和文件爆破的工具，它通过在目标网站上尝试不同的路径来查找隐藏的目录或文件。这种工具通常用于网络渗透测试和安全审计，以发现潜在的安全漏洞或敏感信息暴露。
+
+task 6：
+    When using gobuster to dir bust, what switch do we add to make sure it finds PHP pages?
+aswer:
+    -x php
+
+    要确保 Gobuster 在目录遍历过程中找到 PHP 页面，我们可以添加 `-x` 开关，并指定 `.php` 作为文件扩展名。例如：
+
+```
+gobuster dir -u <目标URL> -x php
+```
+
+task 7:
+    What page is found during our dir busting activities?
+aswer:
+    admin.php
+步骤：
+    gobuster dir -u 10.129.236.116 -x php -w /usr/share/wordlists/dirb/common.txt 
+
+task 8:
+    What is the HTTP status code reported by Gobuster for the discovered page?
+aswer:
+    200
+
+task 9:
+    Submit root flag
+aswer:
+    6483bee07c1c1d57f14e5b0717503c73
+
+步骤：
+    1.浏览器打开http://10.129.236.116/admin.php
+    2.用户名和密码都是admin
+    3.登录后即可看到flag
+
+参考资料:
+[1] https://medium.com/rakulee/hack-the-box-starting-point-preignition-solution-6d64d8bdf8f
+
+[2]https://cybernotes.uk/hackthebox-preignition/
