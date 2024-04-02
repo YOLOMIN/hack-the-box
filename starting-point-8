@@ -1,0 +1,45 @@
+ TARGET MACHINE IP ADDRESS
+
+10.129.228.37 
+
+task 1：
+    What is the default port for rsync? 
+aswer:
+    873
+
+task 2:
+    How many TCP ports are open on the remote host? 
+aswer:
+    1
+
+task 3:
+    What is the protocol version used by rsync on the remote machine? 
+aswer:
+    31
+
+task 4:
+    What is the most common command name on Linux to interact with rsync? 
+aswer:
+    rsync
+
+task 5:
+    What credentials do you have to pass to rsync in order to use anonymous authentication? anonymous:anonymous, anonymous, None, rsync:rsync 
+aswer:
+    None
+
+task 6:
+    What is the option to only list shares and files on rsync? (No need to include the leading -- characters) 
+aswer:
+    list-only
+
+submit root flag：
+    72eaf5344ebb84908ae543a719830519
+
+
+    步骤：
+    1.rsync --list-only rsync://10.129.126.176
+    2.rsync --list-only rsync://10.129.126.176/public
+    3.sync rsync://10.129.126.176/public/flag.txt .
+
+https://medium.com/@exoticspices/htb-synced-walkthrough-very-easy-41b91ec11fe8
+
