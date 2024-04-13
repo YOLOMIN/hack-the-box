@@ -1,0 +1,57 @@
+task 1:
+    What Nmap scanning switch employs the use of default scripts during a scan?
+aswer:
+    -sC
+
+task 2:
+    What service version is found to be running on port 21?
+aswer:
+    vsFTPd 3.0.3
+
+task 3:
+    What FTP code is returned to us for the "Anonymous FTP login allowed" message?
+aswer:
+    230
+
+task 4:
+    After connecting to the FTP server using the ftp client, what username do we provide when prompted to log in anonymously?
+aswer:
+    anonymous
+
+task 5:
+    After connecting to the FTP server anonymously, what command can we use to download the files we find on the FTP server?
+aswer:
+    get
+
+task 6:
+    What is one of the higher-privilege sounding usernames in 'allowed.userlist' that we download from the FTP server?
+aswer:
+    admin
+
+task 7:
+    What version of Apache HTTP Server is running on the target host?
+aswer:
+    Apache httpd 2.4.41
+
+task 8:
+    What switch can we use with Gobuster to specify we are looking for specific filetypes?
+aswer:
+    -x
+
+task 9:
+    Which PHP file can we identify with directory brute force that will provide the opportunity to authenticate to the web service?
+aswer:
+    login.php
+
+Submit root flag:
+    c7110277ac44d78b6a9fff2232434d16
+
+
+获取到flag的步骤
+通过
+    [★]$ nmap -sV -sC 10.129.1.15
+    [★]$ ftp 10.129.1.15(使用Anonymous登录)
+    ftp> get ./allowed.userlist
+    ftp> get allowed.userlist.passwd
+    [★]$ gobuster dir -u 10.129.1.15 -x php -w /usr/share/wordlists/dirb/common.txt 
+    然后通过浏览器输入网址10.129.1.15/login.php，使用get到的用户密码登录
